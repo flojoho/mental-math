@@ -1,21 +1,20 @@
+import statistics from './statistics.js';
 
 const problemDiv = document.getElementById('problemDiv');
 const answerDiv = document.getElementById('answerDiv');
 
-const randomInt = () => {
-  return Math.floor(Math.random() * 11);
-}
-
 let number1;
 let number2;
 let answer = '0';
+let startTime;
 
-const generateProblem = () => {
-  number1 = randomInt();
-  number2 = randomInt()
+const updateProblem = () => {
+  [number1, number2] = statistics.getProblem();
   problemDiv.textContent = `${number1}×${number2}`;
+
+  startTime = performance.now();
 }
-generateProblem();
+updateProblem();
 
 const setAnswer = newAnswer => {
   answer = String(newAnswer);
@@ -49,5 +48,23 @@ const checkAnswer = () => {
   answerDiv.classList.add(isRight ? 'right-answer' : 'wrong-answer');
   setTimeout(() => answerDiv.classList.add('fade-out'), 1);
 
-  if(isRight) generateProblem();
+  if(isRight) {
+    const problemDuration = performance.now() - startTime;
+    statistics.addTime(number1, number2, problemDuration);
+
+    updateProblem();
+  }
 }
+
+document.getElementById('one').addEventListener('click', () => enterNumber(1));
+document.getElementById('two').addEventListener('click', () => enterNumber(2));
+document.getElementById('three').addEventListener('click', () => enterNumber(3));
+document.getElementById('four').addEventListener('click', () => enterNumber(4));
+document.getElementById('five').addEventListener('click', () => enterNumber(5));
+document.getElementById('six').addEventListener('click', () => enterNumber(6));
+document.getElementById('seven').addEventListener('click', () => enterNumber(7));
+document.getElementById('eight').addEventListener('click', () => enterNumber(8));
+document.getElementById('nine').addEventListener('click', () => enterNumber(9));
+document.getElementById('del').addEventListener('click', () => removeNumber());
+document.getElementById('zero').addEventListener('click', () => enterNumber(0));
+document.getElementById('ok').addEventListener('click', () => checkAnswer());
