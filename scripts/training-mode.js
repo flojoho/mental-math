@@ -1,7 +1,9 @@
-import Problem from './Problem.js';
-import Answer from './Answer.js';
+import Problem from './components/Problem.js';
+import Answer from './components/Answer.js';
+import statistics from './statistics.js';
 
-Problem.generate();
+const [number1, number2] = statistics.getProblem();
+Problem.generate(number1, number2);
 
 document.getElementById('one').addEventListener('click', () => Answer.add(1));
 document.getElementById('two').addEventListener('click', () => Answer.add(2));
@@ -14,4 +16,7 @@ document.getElementById('eight').addEventListener('click', () => Answer.add(8));
 document.getElementById('nine').addEventListener('click', () => Answer.add(9));
 document.getElementById('del').addEventListener('click', () => Answer.remove());
 document.getElementById('zero').addEventListener('click', () => Answer.add(0));
-document.getElementById('ok').addEventListener('click', () => Problem.checkAnswer());
+document.getElementById('ok').addEventListener('click', () => {
+  const [number1, number2] = statistics.getProblem();
+  Problem.checkAnswer(() => Problem.generate(number1, number2));
+});

@@ -1,15 +1,15 @@
 
-const answerDiv = document.getElementById('answerDiv');
+const outputElement = document.getElementById('answerDiv');
 
 let answer = '0';
 
 const get = () => {
-  return answer;
+  return parseInt(answer);
 }
 
 const set = newAnswer => {
   answer = String(newAnswer);
-  answerDiv.textContent = `= ${ newAnswer }`;
+  outputElement.textContent = `= ${ newAnswer }`;
 }
 
 const add = number => {
@@ -30,4 +30,10 @@ const remove = () => {
   }
 }
 
-export default { get, set, add, remove };
+const highlight = isRight => {
+  outputElement.className = '';
+  outputElement.classList.add(isRight ? 'right-answer' : 'wrong-answer');
+  setTimeout(() => outputElement.classList.add('fade-out'), 1);
+}
+
+export default { get, set, add, remove, highlight };
