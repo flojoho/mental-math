@@ -12,6 +12,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 25px;
+  background-color: #222222;
+  color: white
 }
 
 main {
@@ -20,11 +22,12 @@ main {
   align-items: center;
   justify-content: space-around;
   height: 100vh;
+  height: 100dvh;
   max-height: 800px;
   width: 100vw;
   max-width: 500px;
+  background-color: black
 }
-
 nav {
   display: flex;
   flex-direction: column;
@@ -32,24 +35,39 @@ nav {
   max-width: 500px;
 }
 
+a {
+  color: white;
+}
+
 nav>a {
   display: block;
-  background-color: #EEEEEE;
+  background-color: #555555;
   text-align: center;
   padding: 20px;
   margin: 10px 0;
   text-decoration: none;
-  color: black;
   width: 100%;
 }
 
+button {
+  background-color: #555555;
+  font-size: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.full-width-button {
+  width: 100%;
+  border: none;
+}
 
 
-#problemDiv {
+
+.problem {
   font-size: 100px;
 }
 
-#answerDiv {
+.answer {
   font-size: 50px;
   margin-bottom: 20px;
   text-align: center;
@@ -88,7 +106,7 @@ nav>a {
 }
 
 .fade-out {
-  background-color: white;
+  background-color: black;
   transition: background-color 0.7s;
 }
 
