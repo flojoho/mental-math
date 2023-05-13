@@ -5,7 +5,7 @@ const resultButton = document.getElementById('result-button');
 const result = document.getElementById('result');
 
 const two = Math.floor(100 * Math.random());
-const one = Math.floor(10 * Math.random());
+const one = Math.ceil(8 * Math.random()) + 1;
 
 twoDigits.textContent = two;
 oneDigit.textContent = one;
