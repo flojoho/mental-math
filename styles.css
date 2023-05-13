@@ -1,3 +1,10 @@
+:root {
+  --black: black;
+  --gray-dark: #222222;
+  --gray: #555555;
+  --white: white;
+  --button-height: 70px;
+}
 
 * {
   box-sizing: border-box;
@@ -12,8 +19,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  background-color: #222222;
-  color: white
+  background-color: var(--gray-dark);
+  color: var(--white)
 }
 
 main {
@@ -25,8 +32,8 @@ main {
   height: 100dvh;
   max-height: 800px;
   width: 100vw;
-  max-width: 500px;
-  background-color: black
+  max-width: 800px;
+  background-color: var(--black)
 }
 nav {
   display: flex;
@@ -36,30 +43,64 @@ nav {
 }
 
 a {
-  color: white;
+  color: var(--white);
 }
 
 nav>a {
   display: block;
-  background-color: #555555;
+  background-color: var(--gray);
   text-align: center;
-  padding: 20px;
+  height: var(--button-height);
+  line-height: var(--button-height);
   margin: 10px 0;
   text-decoration: none;
   width: 100%;
 }
 
 button {
-  background-color: #555555;
+  background-color: var(--gray);
   font-size: 20px;
-  padding: 20px;
-  color: white;
+  color: var(--white);
+  vertical-align: middle;
+  height: var(--button-height);
 }
+
+
+
+
+
+.spacing-small {
+  width: 10px;
+  height: 10px;
+}
+.spacing {
+  width: 20px;
+  height: 20px;
+}
+.spacing-big {
+  width: 30px;
+  height: 30px;
+}
+
+
+
+
+
 
 .full-width-button {
   width: 100%;
   border: none;
 }
+
+.back-button {
+  width: 100%;
+  padding: 10px 20px;
+}
+.back-button>a {
+  text-decoration: none;
+}
+
+
 
 
 
@@ -71,22 +112,18 @@ button {
   font-size: 50px;
   margin-bottom: 20px;
   text-align: center;
-}
-
-
-
-.back-button {
   width: 100%;
 }
 
 .number-section {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
 }
 
 .number-grid {
   width: 100%;
+  max-width: 600px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -106,7 +143,7 @@ button {
 }
 
 .fade-out {
-  background-color: black;
+  background-color: var(--black);
   transition: background-color 0.7s;
 }
 

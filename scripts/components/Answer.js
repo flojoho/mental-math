@@ -31,7 +31,7 @@ const remove = () => {
 }
 
 const highlight = isRight => {
-  outputElement.className = '';
+  outputElement.classList.remove('right-answer', 'wrong-answer', 'fade-out');
   outputElement.classList.add(isRight ? 'right-answer' : 'wrong-answer');
   setTimeout(() => outputElement.classList.add('fade-out'), 1);
 }
